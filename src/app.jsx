@@ -66,7 +66,7 @@ class ChangeCalculator extends Component {
           </div>
           <div className="col-8">
             {/* Outcome alerts */}
-            {this.state.changeDue > 0 && <div className="alert alert-success">Total change due: {this.state.changeDue.toFixed(2)}</div>}
+            {this.state.changeDue > 0 && <div className="alert alert-success">The total change due is ${this.state.changeDue.toFixed(2)}</div>}
             {this.state.changeDue < 0 && <div className="alert alert-danger">Additional money owed: {(this.state.changeDue * -1).toFixed(2)}</div>}
             {/* Grid for Denominations */}
             {Object.keys(this.state).map((key) => {
