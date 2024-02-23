@@ -1,0 +1,55 @@
+html {
+    background-color: #939e93;
+    position: relative;
+    min-width: fit-content;
+    align-items: center;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #392e2e;
+}
+
+input {
+    color: azure;
+    font-size: large;
+    background-color: #5b835b;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* Denomination outputs with specific background images */
+.denomination-output {
+    font-size: x-large;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: calc(55%);
+}
+
+.twenties-output { background-image: url('/img/twn.jpg'); padding-right: 50px; }
+.tens-output { background-image: url('/img/ten.jpg'); padding-right: 45px; }
+.fives-output { background-image: url('/img/fiv.jpg'); padding-right: 33px; }
+.ones-output { background-image: url('/img/one.jpg'); padding-right: 30px; }
+.quarters-output { background-image: url('/img/quar.jpg'); padding-right: 88px; }
+.dimes-output { background-image: url('/img/dim.jpg'); padding-right: 60px; }
+.nickels-output { background-image: url('/img/nic.jpg'); padding-right: 63px; }
+.pennies-output { background-image: url('/img/pen.jpg'); padding-right: 63px; }
+
+button {
+    padding: 10px;
+    background-color: #5b835b;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #939e93;
+}
