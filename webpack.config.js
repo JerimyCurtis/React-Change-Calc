@@ -28,8 +28,13 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'file?name=[name].[ext]',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
       },
+    },
+  },
     ],
   },
 };

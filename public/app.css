@@ -1,55 +1,99 @@
 html {
-    background-color: #939e93;
-    position: relative;
-    min-width: fit-content;
-    align-items: center;
+    background-color: #f4f7f6; /* A soft background color */
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    background: linear-gradient(to right, #76b852, #8DC26F); /* A green gradient background */
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    margin: 15px;
 }
 
 h1 {
-    color: #392e2e;
+    color: #333;
+    margin-bottom: 2rem;
 }
 
-input {
-    color: azure;
-    font-size: large;
-    background-color: #5b835b;
-    padding: 10px;
-    margin: 5px;
+input[type="number"] {
+    width: 100%;
+    padding: 10px 15px; /* Comfortable padding around the text */
+    margin-bottom: 1rem; /* Space between the input fields */
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem; /* Readable font size */
+    display: block; /* Ensures the input takes full width */
 }
 
-/* Denomination outputs with specific background images */
 .denomination-output {
-    font-size: x-large;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: calc(55%);
+    font-size: 1rem;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 0;
 }
 
-.twenties-output { background-image: url('/img/twn.jpg'); padding-right: 50px; }
-.tens-output { background-image: url('/img/ten.jpg'); padding-right: 45px; }
-.fives-output { background-image: url('/img/fiv.jpg'); padding-right: 33px; }
-.ones-output { background-image: url('/img/one.jpg'); padding-right: 30px; }
-.quarters-output { background-image: url('/img/quar.jpg'); padding-right: 88px; }
-.dimes-output { background-image: url('/img/dim.jpg'); padding-right: 60px; }
-.nickels-output { background-image: url('/img/nic.jpg'); padding-right: 63px; }
-.pennies-output { background-image: url('/img/pen.jpg'); padding-right: 63px; }
+.denomination-output img {
+    height: 40px; /* Set a fixed height for your images */
+    margin-left: 10px;
+}
 
 button {
-    padding: 10px;
-    background-color: #5b835b;
-    width: 150px;
-    height: 50px;
+    width: 100%;
+    padding: 15px 20px; /* Larger padding for a touch-friendly button */
+    margin-top: 20px;
+    background-color: #5cb85c; /* A green color to match the theme */
+    color: white;
     border: none;
     border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 button:hover {
-    background-color: #939e93;
+    background-color: #4cae4c; /* A slightly darker green for the hover state */
+}
+
+.alert {
+    font-size: 1rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
