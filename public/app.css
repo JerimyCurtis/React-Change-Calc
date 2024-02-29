@@ -26,7 +26,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 450px;
+    min-width: 450px;
+    max-width: 900px;
     margin: 15px;
 }
 
@@ -37,7 +38,9 @@ h1 {
 
 input[type="number"] {
     width: 100%;
-    padding: 10px 15px; /* Comfortable padding around the text */
+    min-width: 200px;
+    max-width: 450px;
+    padding: 10px 20px; /* Comfortable padding around the text */
     margin-bottom: 1rem; /* Space between the input fields */
     border: 2px solid #ced4da;
     border-radius: 5px;
@@ -45,20 +48,30 @@ input[type="number"] {
     display: block; /* Ensures the input takes full width */
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .denomination-output {
     font-size: 1rem;
-    margin: 10px 0;
+    margin: 25px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 10px 0;
+    padding: 30px 0;
 }
 
-.denomination-output img {
-    height: 40px; /* Set a fixed height for your images */
-    margin-left: 10px;
-}
+.twenties-output {width:50%; background-image: url('./img/twn.jpg'); }
+.tens-output {transform:scale(0.5);width: 50%; background-image: url('./img/ten.jpg'); }
+.fives-output {transform:scale(0.5);width: 50%; background-image: url('./img/fiv.jpg'); }
+.ones-output {transform:scale(0.5);width: 50%; background-image: url('./img/one.jpg'); }
+.quarters-output {transform:scale(0.5); background-image: url('./img/quar.jpg'); }
+.dimes-output {transform:scale(0.5); background-image: url('./img/dim.jpg'); }
+.nickels-output {transform:scale(0.5); background-image: url('./img/nic.jpg'); }
+.pennies-output {transform:scale(0.5); background-image: url('./img/pen.jpg'); }
 
 button {
     width: 100%;

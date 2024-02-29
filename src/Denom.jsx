@@ -2,7 +2,7 @@ import React from 'react';
 
 const Denom = ({ state }) => (
   <div className="col-8">
-    <div className="denomination-output twenties-output">Twenties: {state.twenties}</div>
+    <div className="denomination-output twenties-output">{state.twenties}</div>
     <div className="denomination-output tens-output">Tens: {state.tens}</div>
     <div className="denomination-output fives-output">Fives: {state.fives}</div>
     <div className="denomination-output ones-output">Ones: {state.ones}</div>

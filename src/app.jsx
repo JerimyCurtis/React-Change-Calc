@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amountDue: 0,
-      amountReceived: 0,
+      amountDue: '', // Initialize as empty string
+      amountReceived: '', // Initialize as empty string
       changeDue: 0,
       twenties: 0,
       tens: 0,
@@ -24,20 +24,40 @@ class App extends Component {
   }
 
   handleChange(e) {
-    this.setState({ [e.target.name]: parseFloat(e.target.value) || 0 });
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   calculateChange() {
-    const changeDue = this.state.amountReceived - this.state.amountDue;
-    let remaining = changeDue * 100;
-    const Denominations = { twenties: 2000, tens: 1000, fives: 500, ones: 100, quarters: 25, dimes: 10, nickels: 5, pennies: 1 };
+    // Use parseFloat, fallback to 0 if NaN
+    const amountDue = parseFloat(this.state.amountDue) || 0;
+    const amountReceived = parseFloat(this.state.amountReceived) || 0;
+    let changeDue = amountReceived - amountDue;
+
+    if (changeDue < 0) {
+      // Handle scenario where more money is due than received
+      this.setState({ changeDue });
+      return;
+    }
+
+    let remaining = changeDue * 100; // Convert to cents
+    const Denominations = {
+      twenties: 2000,
+      tens: 1000,
+      fives: 500,
+      ones: 100,
+      quarters: 25,
+      dimes: 10,
+      nickels: 5,
+      pennies: 1,
+    };
+
     let change = { changeDue };
+
     Object.keys(Denominations).forEach(key => {
-      if (key !== 'changeDue') {
-        change[key] = Math.floor(remaining / Denominations[key]);
-        remaining = remaining % Denominations[key];
-      }
+      change[key] = Math.floor(remaining / Denominations[key]);
+      remaining %= Denominations[key];
     });
+
     this.setState(change);
   }
 
@@ -45,7 +65,12 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Change Calculator</h1>
-         <Input amountDue={this.state.amountDue} amountReceived={this.state.amountReceived} handleChange={this.handleChange} calculateChange={this.calculateChange} />
+        <Input
+          amountDue={this.state.amountDue}
+          amountReceived={this.state.amountReceived}
+          handleChange={this.handleChange}
+          calculateChange={this.calculateChange}
+        />
         <Output changeDue={this.state.changeDue} />
         <Denom state={this.state} />
       </div>
