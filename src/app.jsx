@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       amountDue: '',
       amountReceived: '', 
-      changeDue: 0,
+      changeDue: null,
       twenties: 0,
       tens: 0,
       fives: 0,
@@ -28,39 +28,29 @@ class App extends Component {
   }
 
   calculateChange() {
-   
-    const amountDue = parseFloat(this.state.amountDue) || 0;
-    const amountReceived = parseFloat(this.state.amountReceived) || 0;
-    let changeDue = amountReceived - amountDue;
-    if (changeDue < 0) {
-  
-      this.setState({ changeDue });
-      return;
-    }
-
-    let remaining = changeDue * 100; 
-    const Denominations = {
-      twenties: 2000,
-      tens: 1000,
-      fives: 500,
-      ones: 100,
-      quarters: 25,
-      dimes: 10,
-      nickels: 5,
-      pennies: 1,
+    const changeDue = this.state.amountReceived - this.state.amountDue;
+    const remainingChange = Math.round(changeDue * 100);
+    const change = {
+      changeDue,
+      twenties: Math.floor(remainingChange / 2000),
+      remainingChange: remainingChange % 2000,
+      tens: Math.floor(remainingChange / 1000),
+      remainingChange: remainingChange % 1000,
+      fives: Math.floor(remainingChange / 500),
+      remainingChange: remainingChange % 500,
+      quarters: Math.floor(remainingChange / 25),
+      remainingChange: remainingChange % 25,
+      dimes: Math.floor(remainingChange / 10),
+      remainingChange: remainingChange % 10,
+      nickels: Math.floor(remainingChange / 5),
+      remainingChange: remainingChange % 5,
+      pennies: remainingChange
     };
-
-    let change = { changeDue };
-
-    Object.keys(Denominations).forEach(key => {
-      change[key] = Math.floor(remaining / Denominations[key]);
-      remaining %= Denominations[key];
-    });
-
     this.setState(change);
   }
 
   render() {
+    console.log(this.state);
     return (
       <div className="container">
         <h1>Change Calculator</h1>
