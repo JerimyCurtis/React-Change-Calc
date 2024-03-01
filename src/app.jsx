@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amountDue: '', // Initialize as empty string
-      amountReceived: '', // Initialize as empty string
+      amountDue: '',
+      amountReceived: '', 
       changeDue: 0,
       twenties: 0,
       tens: 0,
@@ -28,18 +28,17 @@ class App extends Component {
   }
 
   calculateChange() {
-    // Use parseFloat, fallback to 0 if NaN
+   
     const amountDue = parseFloat(this.state.amountDue) || 0;
     const amountReceived = parseFloat(this.state.amountReceived) || 0;
     let changeDue = amountReceived - amountDue;
-
     if (changeDue < 0) {
-      // Handle scenario where more money is due than received
+  
       this.setState({ changeDue });
       return;
     }
 
-    let remaining = changeDue * 100; // Convert to cents
+    let remaining = changeDue * 100; 
     const Denominations = {
       twenties: 2000,
       tens: 1000,

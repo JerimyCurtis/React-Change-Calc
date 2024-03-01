@@ -1,5 +1,5 @@
 html {
-    background-color: #f4f7f6; /* A soft background color */
+    background-color: #f4f7f6; 
     height: 100%;
     box-sizing: border-box;
 }
@@ -17,7 +17,7 @@ body {
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    background: linear-gradient(to right, #76b852, #8DC26F); /* A green gradient background */
+    background: linear-gradient(to right, #76b852, #8DC26F);
 }
 
 .container {
@@ -40,12 +40,12 @@ input[type="number"] {
     width: 100%;
     min-width: 200px;
     max-width: 450px;
-    padding: 10px 20px; /* Comfortable padding around the text */
-    margin-bottom: 1rem; /* Space between the input fields */
+    padding: 10px 20px;
+    margin-bottom: 1rem; 
     border: 2px solid #ced4da;
     border-radius: 5px;
-    font-size: 1rem; /* Readable font size */
-    display: block; /* Ensures the input takes full width */
+    font-size: 1rem;
+    display: block; 
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -62,10 +62,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .denomination-output div {
-    flex-grow: 1; /* Allows the div to grow and fill available space */
+    flex-grow: 1;
 }
 
-/* Use a pseudo-element to display the image to the left of the text */
 .twenties-output::before,
 .tens-output::before,
 .fives-output::before,
@@ -76,12 +75,12 @@ input[type="number"]::-webkit-inner-spin-button {
 .pennies-output::before {
     content: '';
     display: inline-block;
-    height: 40px; /* Fixed height for images */
-    width: 70px; /* Fixed width for images */
+    height: 40px; 
+    width: 70px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 10px; /* Space between the image and the text */
+    margin-right: 10px;
 }
 
 .twenties-output::before { background-image: url('./img/twn.jpg'); }
@@ -93,11 +92,11 @@ input[type="number"]::-webkit-inner-spin-button {
 .nickels-output::before { background-image: url('./img/nic.jpg'); }
 .pennies-output::before { background-image: url('./img/pen.jpg'); }
 
-button {
+.container .btn-primary {
     width: 100%;
-    padding: 15px 20px; /* Larger padding for a touch-friendly button */
+    padding: 15px 20px;
     margin-top: 20px;
-    background-color: #5cb85c; /* A green color to match the theme */
+    background-color: #5cb85c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -106,8 +105,8 @@ button {
     transition: background-color 0.2s;
 }
 
-button:hover {
-    background-color: #4cae4c; /* A slightly darker green for the hover state */
+.btn:hover {
+    background-color: #4cae4c;
 }
 
 .alert {
@@ -124,9 +123,33 @@ button:hover {
     background-color: #dff0d8;
     border-color: #d6e9c6;
 }
+.alert-success::after {
+    background-image: url('/img/pZj.gif');
+    content: ''; 
+    position: absolute;
+    right: -100px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 100px; 
+    height: 100px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .alert-danger {
     color: #a94442;
     background-color: #f2dede;
     border-color: #ebccd1;
+}
+.alert-danger::after {
+    background-image: url('/img/1A32.gif');
+    content: ''; 
+    position: absolute;
+    right: -120px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 100px; 
+    height: 120px; 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
