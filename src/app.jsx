@@ -30,24 +30,35 @@ class App extends Component {
   calculateChange() {
     const changeDue = this.state.amountReceived - this.state.amountDue;
     const remainingChange = Math.round(changeDue * 100);
+    const twenties = Math.floor(remainingChange / 2000);
     const change = {
       changeDue,
-      twenties: Math.floor(remainingChange / 2000),
-      remainingChange: remainingChange % 2000,
-      tens: Math.floor(remainingChange / 1000),
-      remainingChange: remainingChange % 1000,
-      fives: Math.floor(remainingChange / 500),
-      remainingChange: remainingChange % 500,
-      quarters: Math.floor(remainingChange / 25),
-      remainingChange: remainingChange % 25,
-      dimes: Math.floor(remainingChange / 10),
-      remainingChange: remainingChange % 10,
-      nickels: Math.floor(remainingChange / 5),
-      remainingChange: remainingChange % 5,
-      pennies: remainingChange
+      twenties,
+      remainingChange: remainingChange % 2000
     };
+    console.log('change object before setState:', change);
     this.setState(change);
   }
+  //   const changeDue = this.state.amountReceived - this.state.amountDue;
+  //   const remainingChange = Math.round(changeDue * 100);
+  //   const change = {
+  //     changeDue,
+  //     twenties: Math.floor(remainingChange / 2000),
+  //     remainingChange: remainingChange % 2000,
+  //     tens: Math.floor(remainingChange / 1000),
+  //     remainingChange: remainingChange % 1000,
+  //     fives: Math.floor(remainingChange / 500),
+  //     remainingChange: remainingChange % 500,
+  //     quarters: Math.floor(remainingChange / 25),
+  //     remainingChange: remainingChange % 25,
+  //     dimes: Math.floor(remainingChange / 10),
+  //     remainingChange: remainingChange % 10,
+  //     nickels: Math.floor(remainingChange / 5),
+  //     remainingChange: remainingChange % 5,
+  //     pennies: remainingChange
+  //   };
+  //   this.setState(change);
+  // }
 
   render() {
     console.log(this.state);
