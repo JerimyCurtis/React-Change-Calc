@@ -7,17 +7,17 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amountDue: '',
-      amountReceived: '', 
-      changeDue: null,
-      twenties: 0,
-      tens: 0,
-      fives: 0,
-      ones: 0,
-      quarters: 0,
-      dimes: 0,
-      nickels: 0,
-      pennies: 0,
+      amountDue: ' ',
+      amountReceived: ' ', 
+      changeDue: '0',
+      twenties: '0',
+      tens: '0',
+      fives: '0',
+      ones: '0',
+      quarters: '0',
+      dimes: '0',
+      nickels: '0',
+      pennies: '0',
     };
     this.handleChange = this.handleChange.bind(this);
     this.calculateChange = this.calculateChange.bind(this);
@@ -28,37 +28,37 @@ class App extends Component {
   }
 
   calculateChange() {
-    const changeDue = this.state.amountReceived - this.state.amountDue;
-    const remainingChange = Math.round(changeDue * 100);
-    const twenties = Math.floor(remainingChange / 2000);
-    const change = {
-      changeDue,
-      twenties,
-      remainingChange: remainingChange % 2000
+    const amountDue = parseFloat(this.state.amountDue) || 0;
+    const amountReceived = parseFloat(this.state.amountReceived) || 0;
+    let changeDue = amountReceived - amountDue;
+    
+    if (changeDue < 0) {
+      this.setState({ changeDue });
+      return;
+    }
+    
+    let remaining = Math.round(changeDue * 100);
+    const Denominations = {
+      twenties: 2000,
+      tens: 1000,
+      fives: 500,
+      ones: 100,
+      quarters: 25,
+      dimes: 10,
+      nickels: 5,
+      pennies: 1,
     };
-    console.log('change object before setState:', change);
+    
+    let change = {changeDue: changeDue.toFixed(2)}; 
+    
+    Object.keys(Denominations).forEach(key => {
+      change[key] = Math.floor(remaining / Denominations[key]);
+      remaining %= parseFloat(Denominations[key]);
+    });
+  
     this.setState(change);
   }
-  //   const changeDue = this.state.amountReceived - this.state.amountDue;
-  //   const remainingChange = Math.round(changeDue * 100);
-  //   const change = {
-  //     changeDue,
-  //     twenties: Math.floor(remainingChange / 2000),
-  //     remainingChange: remainingChange % 2000,
-  //     tens: Math.floor(remainingChange / 1000),
-  //     remainingChange: remainingChange % 1000,
-  //     fives: Math.floor(remainingChange / 500),
-  //     remainingChange: remainingChange % 500,
-  //     quarters: Math.floor(remainingChange / 25),
-  //     remainingChange: remainingChange % 25,
-  //     dimes: Math.floor(remainingChange / 10),
-  //     remainingChange: remainingChange % 10,
-  //     nickels: Math.floor(remainingChange / 5),
-  //     remainingChange: remainingChange % 5,
-  //     pennies: remainingChange
-  //   };
-  //   this.setState(change);
-  // }
+  
 
   render() {
     console.log(this.state);
