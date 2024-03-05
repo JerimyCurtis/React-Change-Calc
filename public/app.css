@@ -1,14 +1,16 @@
 html {
     background-color: #f4f6f7;
     background-image: url('/img/diner.png');
-    background-repeat: no-repeat; 
-    background-size: cover; /
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
     height: 100%;
     box-sizing: border-box;
-} 
+}
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -21,10 +23,9 @@ body {
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    background:  url('/img/diner.png') no-repeat center center;
+    background: url('/img/diner.png') no-repeat center center;
     background-size: cover;
 }
-
 
 .container {
     background: linear-gradient(to right, rgba(118, 184, 82, 0.5), rgba(141, 194, 111, 0.5)), url('/img/wood.jpg');
@@ -38,8 +39,9 @@ body {
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 2rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: xxx-large;
+    color: #8A5A44;
 }
 
 input[type="number"] {
@@ -47,11 +49,11 @@ input[type="number"] {
     min-width: 200px;
     max-width: 450px;
     padding: 10px 20px;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     border: 2px solid #ced4da;
     border-radius: 5px;
     font-size: 1rem;
-    display: block; 
+    display: block;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -63,7 +65,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .denomination-output {
     font-size: 1.5rem;
     margin: 15px 0;
-    font-weight:500;
+    font-weight: 500;
     display: flex;
     align-items: center;
 }
@@ -82,7 +84,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .pennies-output::before {
     content: '';
     display: inline-block;
-    height: 40px; 
+    height: 40px;
     width: 70px;
     background-size: contain;
     background-repeat: no-repeat;
@@ -103,7 +105,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 100%;
     padding: 15px 20px;
     margin-top: 20px;
-    background-color: #5cb85c; /* Normal state background color */
+    background-color: #5cb85c;
     background-image: linear-gradient(to bottom, #5cb85c 0%, #419641 100%);
     color: white;
     border: none;
@@ -112,11 +114,11 @@ input[type="number"]::-webkit-inner-spin-button {
     cursor: pointer;
     transition: background-color 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.2);
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
 .container .btn-primary:hover {
-    background-color: #4cae4c; /* Lighter shade for hover */
+    background-color: #4cae4c;
     background-image: linear-gradient(to bottom, #4cae4c 0%, #398439 100%);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
 }
@@ -127,6 +129,14 @@ input[type="number"]::-webkit-inner-spin-button {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
 }
 
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
 
 .alert {
     font-size: 1rem;
@@ -142,15 +152,16 @@ input[type="number"]::-webkit-inner-spin-button {
     background-color: #dff0d8;
     border-color: #d6e9c6;
 }
+
 .alert-success::after {
     background-image: url('/img/pZj.gif');
-    content: ''; 
+    content: '';
     position: absolute;
-    right: -100px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    width: 100px; 
-    height: 100px; 
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -160,15 +171,16 @@ input[type="number"]::-webkit-inner-spin-button {
     background-color: #f2dede;
     border-color: #ebccd1;
 }
+
 .alert-danger::after {
     background-image: url('/img/1A32.gif');
-    content: ''; 
+    content: '';
     position: absolute;
-    right: -120px; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    width: 100px; 
-    height: 120px; 
+    right: -120px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 120px;
     background-size: cover;
     background-repeat: no-repeat;
 }

@@ -13,5 +13,4 @@ const Denom = ({ state }) => (
   </div>
 );
 
-
 export default Denom;

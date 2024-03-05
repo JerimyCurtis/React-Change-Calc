@@ -8,54 +8,45 @@ class App extends Component {
     super(props);
     this.state = {
       amountDue: '',
-      amountReceived: '', 
-      changeDue: '0',
-      twenties: '0',
-      tens: '0',
-      fives: '0',
-      ones: '0',
-      quarters: '0',
-      dimes: '0',
-      nickels: '0',
-      pennies: '0',
+      amountReceived: '',
+      changeDue: 0,
+      twenties: 0,
+      tens: 0,
+      fives: 0,
+      ones: 0,
+      quarters: 0,
+      dimes: 0,
+      nickels: 0,
+      pennies: 0,
+      tipAmount: 0,
     };
     this.handleChange = this.handleChange.bind(this);
     this.calculateChange = this.calculateChange.bind(this);
+    this.calculateTip = this.calculateTip.bind(this);
   }
 
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: parseFloat(e.target.value) || 0 });
   }
 
   calculateChange() {
-    const amountDue = parseFloat(this.state.amountDue);
-    const amountReceived = parseFloat(this.state.amountReceived);
-    const changeDue = amountReceived - amountDue;
-    const remainingChange = Math.round(changeDue * 100);
-    let remaining = remainingChange;
-    const change = {
-      changeDue: changeDue.toFixed(2).toString(),
-      twenties: Math.floor(remaining / 2000).toString(),
-    };
-    remaining %= 2000;
-    change.tens = Math.floor(remaining / 1000).toString();
-    remaining %= 1000;
-    change.fives = Math.floor(remaining / 500).toString();
-    remaining %= 500;
-    change.ones = Math.floor(remaining / 100).toString();
-    remaining %= 100;
-    change.quarters = Math.floor(remaining / 25).toString();
-    remaining %= 25;
-    change.dimes = Math.floor(remaining / 10).toString();
-    remaining %= 10;
-    change.nickels = Math.floor(remaining / 5).toString();
-    remaining %= 5;
-    change.pennies = remaining.toString();
+    const changeDue = this.state.amountReceived - this.state.amountDue;
+    let remaining = changeDue * 100;
+    const Denominations = { twenties: 2000, tens: 1000, fives: 500, ones: 100, quarters: 25, dimes: 10, nickels: 5, pennies: 1 };
+    let change = { changeDue };
+    Object.keys(Denominations).forEach(key => {
+      change[key] = Math.floor(remaining / Denominations[key]);
+      remaining %= Denominations[key];
+    });
     this.setState(change);
-  }  
+  }
+
+  calculateTip(percentage) {
+    const tipAmount = this.state.amountDue * (percentage / 100);
+    this.setState({ tipAmount });
+  }
 
   render() {
-    console.log(this.state);
     return (
       <div className="container">
         <h1>Change Calculator</h1>
@@ -64,8 +55,9 @@ class App extends Component {
           amountReceived={this.state.amountReceived}
           handleChange={this.handleChange}
           calculateChange={this.calculateChange}
+          calculateTip={this.calculateTip}
         />
-        <Output changeDue={this.state.changeDue} />
+        <Output changeDue={this.state.changeDue} tipAmount={this.state.tipAmount} />
         <Denom state={this.state} />
       </div>
     );
