@@ -7,8 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      amountDue: '0',
-      amountReceived: '0', 
+      amountDue: '',
+      amountReceived: '', 
       changeDue: '0',
       twenties: '0',
       tens: '0',
