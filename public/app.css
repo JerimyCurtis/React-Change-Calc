@@ -154,7 +154,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .alert-success::after {
-    background-image: url('/img/pZj.gif');
+    /* background-image: url('/img/pZj.gif'); */
     content: '';
     position: absolute;
     right: -100px;
@@ -173,7 +173,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .alert-danger::after {
-    background-image: url('/img/1A32.gif');
+    /* background-image: url('/img/1A32.gif'); */
     content: '';
     position: absolute;
     right: -120px;
