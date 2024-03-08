@@ -1,0 +1,155 @@
+html {
+    background-color: #f4f7f6; 
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #76b852, #8DC26F);
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-width: 450px;
+    max-width: 900px;
+    margin: 15px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+input[type="number"] {
+    width: 100%;
+    min-width: 200px;
+    max-width: 450px;
+    padding: 10px 20px;
+    margin-bottom: 1rem; 
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    display: block; 
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.denomination-output {
+    font-size: 1rem;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.denomination-output div {
+    flex-grow: 1;
+}
+
+.twenties-output::before,
+.tens-output::before,
+.fives-output::before,
+.ones-output::before,
+.quarters-output::before,
+.dimes-output::before,
+.nickels-output::before,
+.pennies-output::before {
+    content: '';
+    display: inline-block;
+    height: 40px; 
+    width: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.twenties-output::before { background-image: url('./img/twn.jpg'); }
+.tens-output::before { background-image: url('./img/ten.jpg'); }
+.fives-output::before { background-image: url('./img/fiv.jpg'); }
+.ones-output::before { background-image: url('./img/one.jpg'); }
+.quarters-output::before { background-image: url('./img/quar.jpg'); }
+.dimes-output::before { background-image: url('./img/dim.jpg'); }
+.nickels-output::before { background-image: url('./img/nic.jpg'); }
+.pennies-output::before { background-image: url('./img/pen.jpg'); }
+
+.container .btn-primary {
+    width: 100%;
+    padding: 15px 20px;
+    margin-top: 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #4cae4c;
+}
+
+.alert {
+    font-size: 1rem;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert-success::after {
+    background-image: url('/img/pZj.gif');
+    content: ''; 
+    position: absolute;
+    right: -100px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 100px; 
+    height: 100px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.alert-danger::after {
+    background-image: url('/img/1A32.gif');
+    content: ''; 
+    position: absolute;
+    right: -120px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 100px; 
+    height: 120px; 
+    background-size: cover;
+    background-repeat: no-repeat;
+}
